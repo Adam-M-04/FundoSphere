@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section class="w-100 d-flex justify-content-center align-items-center searchbar-container">
+        <div class="container-sm searchbar-form-container text-center">
+            <h1 class="display-1 text-light mb-5">FundoSphere</h1>
+
+            <form id="searchForm" action="" method="GET" class="d-flex position-relative" onsubmit="console.log(2)">
+                <input class="form-control form-control-lg me-2 searchbar" type="text"
+                       placeholder="Search for fundraiser" aria-label="Search">
+                <i class="bi bi-search search-icon fs-2" onclick="document.getElementById('searchForm').submit()"></i>
+            </form>
+
+            <h4 class="my-4 text-light display-5">OR</h4>
+
+            <a href="/">
+                <button class="btn btn-lg btn-success w-100">CREATE FUNDRAISER</button>
+            </a>
+        </div>
+    </section>
+
+    {% for item in fundraisers %}
+
+    {% endfor %}
+
+{% endblock %}
