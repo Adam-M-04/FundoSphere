@@ -3,10 +3,10 @@
 {% block body %}
 
     <section class="w-100 d-flex justify-content-center align-items-center searchbar-container">
-        <div class="container-sm searchbar-form-container text-center">
+        <div class="container-sm searchbar-form-container glassy-background text-center p-4 m-2">
             <h1 class="display-1 text-light mb-5">FundoSphere</h1>
 
-            <form id="searchForm" action="" method="GET" class="d-flex position-relative" onsubmit="console.log(2)">
+            <form id="searchForm" action="" method="GET" class="d-flex align-items-center position-relative" onsubmit="console.log(2)">
                 <input class="form-control form-control-lg me-2 searchbar" type="text"
                        placeholder="Search for fundraiser" aria-label="Search">
                 <i class="bi bi-search search-icon fs-2" onclick="document.getElementById('searchForm').submit()"></i>
@@ -20,8 +20,29 @@
         </div>
     </section>
 
-    {% for item in fundraisers %}
+    <h1 class="display-1 text-light text-center">Latest</h1>
 
-    {% endfor %}
+    <section class="container text-center">
+        <section class="d-flex justify-content-center flex-wrap">
+            {% for item in fundraisers %}
+                <section class="d-flex justify-content-center align-items-center">
+                    <a href="/fundraiser/{{ item.id }}" class="text-decoration-none text-dark">
+                        <div class="card m-2" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="card image">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ item.title }}</h5>
+                                <p class="card-text"> {{ item.description }}</p>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                         role="progressbar" style="width: 25%;"
+                                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </section>
+            {% endfor %}
+        </section>
+    </section>
 
 {% endblock %}

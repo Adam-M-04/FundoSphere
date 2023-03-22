@@ -16,14 +16,29 @@
                     <li class="nav-item"><a href="#" class="nav-link px-3 link-light">About</a></li>
                 </ul>
 
-                <div class="col-md-3 text-end">
-                    <a href="/login" class="text-decoration-none">
-                        <button type="button" class="btn btn-outline-primary me-2">Login</button>
-                    </a>
-                    <a href="/register" class="text-decoration-none">
-                        <button type="button" class="btn btn-primary">Sign-up</button>
-                    </a>
-                </div>
+                {% if app.user %}
+                    <div class="flex-shrink-0 dropdown">
+                        <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>{{ app.user.username }}</span>
+                        </a>
+                        <ul class="dropdown-menu text-small shadow">
+                            <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+                        </ul>
+                    </div>
+                {% else %}
+                    <div class="col-md-3 text-end">
+                        <a href="/login" class="text-decoration-none">
+                            <button type="button" class="btn btn-dark text-light me-2">Login</button>
+                        </a>
+                        <a href="/register" class="text-decoration-none">
+                            <button type="button" class="btn btn-primary">Sign-up</button>
+                        </a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </nav>
