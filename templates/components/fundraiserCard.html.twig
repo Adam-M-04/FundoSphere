@@ -1,9 +1,9 @@
 {% block card %}
     <div class="card m-2" style="width: 18rem; height: calc(100% - 1rem);">
-        <img src="/images/{{ item.imagePath }}" class="card-img-top" alt="card image" style="max-height: 180px;">
+        <img src="/images/{{ item.imagePath }}" class="card-img-top" alt="card image" style="height: 180px;">
         <div class="card-body">
-            <h5 class="card-title" style="min-height: 48px;">{{ item.title }}</h5>
-            <p class="card-text" style="min-height: 69px;"> {{ item.description }}</p>
+            <h5 class="card-title limit-text-2" style="min-height: 48px;">{{ item.title }}</h5>
+            <p class="card-text limit-text-3" style="min-height: 69px;"> {{ item.description }}</p>
 
             <p class="card-text d-flex justify-content-between flex-wrap">
                 <span>{{ item.calculateRemainingTime() }}</span>

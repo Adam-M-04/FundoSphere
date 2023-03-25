@@ -4,28 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab618d09-5140-4b88-bd1a-1f3794849426" name="Changes" comment="Users added">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20230323134857.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/641ddbce23dc6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/FundraiserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Donation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/FundraisingFormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/DonationRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/fundraiserCard.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/fundo_sphere/createFundraising.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/fundraiser/index.html.twig" afterDir="false" />
+    <list default="true" id="ab618d09-5140-4b88-bd1a-1f3794849426" name="Changes" comment="Creating functionality added">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20230325141556.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/641f022b9df5f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/fundo_sphere/allFundraisers.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/fundo_sphere/fundraiserPage.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/background.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/FundoSphereController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FundoSphereController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FundraiserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FundraiserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Fundraising.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Fundraising.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/fundraiserCard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/fundraiserCard.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/fundo_sphere/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fundo_sphere/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/navbar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +222,7 @@
       <workItem from="1679479918547" duration="8563000" />
       <workItem from="1679576548917" duration="8734000" />
       <workItem from="1679674041215" duration="5813000" />
-      <workItem from="1679738939659" duration="876000" />
+      <workItem from="1679738939659" duration="10396000" />
     </task>
     <task id="LOCAL-00001" summary="Homepage frontend">
       <created>1679319683560</created>
@@ -247,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679503556156</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Creating functionality added">
+      <created>1679739861043</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679739861043</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +266,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Homepage frontend" />
     <MESSAGE value="Users added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Users added" />
+    <MESSAGE value="Creating functionality added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creating functionality added" />
   </component>
 </project>

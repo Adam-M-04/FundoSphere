@@ -12,7 +12,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FundraiserController extends AbstractController
 {
-    #[Route('/fundraising/create', name: 'create_fundraiser')]
+    private $em;
+
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->em = $em;
+    }
+    #[Route('/fundraiser/create', name: 'create_fundraiser')]
     public function createProduct(Request $request, EntityManagerInterface $em): Response
     {
         $fundraising = new Fundraising();
@@ -46,6 +52,16 @@ class FundraiserController extends AbstractController
 
         return $this->render ('fundo_sphere/createFundraising.html.twig', [
             'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/fundraiser/{id}', name: 'fundraiser', condition: "params['id'] > 0")]
+    public function fundraiser(int $id): Response
+    {
+        $fundraiser = $this->em->getRepository(Fundraising::class)->find($id);
+
+        return $this->render('fundo_sphere/fundraiserPage.html.twig', [
+            'fundraiser' => $fundraiser
         ]);
     }
 }

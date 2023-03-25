@@ -14,16 +14,16 @@
 
             <h4 class="my-4 text-light display-5">OR</h4>
 
-            <a href="/">
+            <a href="/fundraiser/create">
                 <button class="btn btn-lg btn-success w-100">CREATE FUNDRAISER</button>
             </a>
         </div>
     </section>
 
-    <h1 class="display-1 text-light text-center">Latest</h1>
+    <h1 class="display-1 text-light text-center p-2">Latest</h1>
 
-    <section class="container text-center">
-        <section class="d-flex justify-content-center flex-wrap h-100">
+    <section class="container-flex text-center d-flex justify-content-center">
+        <section class="d-flex justify-content-center flex-wrap h-100" style="max-width: 1000px;">
             {% for item in fundraisers %}
                 <section class="d-flex justify-content-center align-items-stretch">
                     <a href="/fundraiser/{{ item.id }}" class="text-decoration-none text-dark">
@@ -33,5 +33,12 @@
             {% endfor %}
         </section>
     </section>
+
+    <section class="text-center mb-3">
+        <a href="/fundraiser">
+            <button class="btn btn-lg btn-primary m-3">Show all</button>
+        </a>
+    </section>
+
 
 {% endblock %}

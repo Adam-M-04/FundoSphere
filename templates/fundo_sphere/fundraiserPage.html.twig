@@ -1,0 +1,36 @@
+{% block title %}
+    FundoSphere - {{ fundraiser.title }}
+{% endblock %}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section class="container d-flex justify-content-center my-5">
+        <div class="card mb-3 w-100" style="max-width: 1000px;">
+            <img src="/images/{{ fundraiser.imagePath }}" class="card-img-top" alt="..."
+                 style="height: 500px; object-fit: cover;">
+            <div class="card-body">
+                <h2 class="card-title">{{ fundraiser.title }}</h2>
+                <p class="card-text" style="text-align: justify;">{{ fundraiser.description }}</p>
+
+                <p class="card-text d-flex justify-content-between flex-wrap">
+                    <b>{{ fundraiser.calculateRemainingTime() }}</b>
+                    <i class="text-secondary">By: {{ fundraiser.fundraiserUser.username }}</i>
+                </p>
+
+                <div class="progress" style="height: 20px;">
+                    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                         role="progressbar" style="width: {{ fundraiser.calculateCollectedPercent(true) }}%;"
+                         aria-valuenow="{{ fundraiser.calculateCollectedPercent() }}" aria-valuemin="0" aria-valuemax="100">
+                        {{ fundraiser.calculateCollectedPercent() }}%
+                    </div>
+                </div>
+                <p class="card-text mt-3">
+                    <strong class="fs-5">${{ fundraiser.getDonatedAmount() }}</strong> out of ${{ fundraiser.goal }}
+                </p>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

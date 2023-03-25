@@ -21,9 +21,19 @@ class FundoSphereController extends AbstractController
     #[Route('/', name: 'homepage')]
     public function index(): Response
     {
-        $fundraisers = $this->em->getRepository(Fundraising::class)->findBy([], ['create_date' => 'DESC'], 4);
+        $fundraisers = $this->em->getRepository(Fundraising::class)->findBy([], ['create_date' => 'DESC'], 6);
 
         return $this->render('fundo_sphere/index.html.twig', [
+            'fundraisers' => $fundraisers
+        ]);
+    }
+
+    #[Route('/fundraiser', name: 'fundraisers')]
+    public function fundraisers(): Response
+    {
+        $fundraisers = $this->em->getRepository(Fundraising::class)->findAll();
+
+        return $this->render('fundo_sphere/allFundraisers.html.twig', [
             'fundraisers' => $fundraisers
         ]);
     }

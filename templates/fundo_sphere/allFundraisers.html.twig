@@ -1,0 +1,59 @@
+{% block title %}
+    FundoSphere - fundraisers
+{% endblock %}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section class="py-5 text-center container text-light">
+        <div class="row py-lg-5 glassy-background">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Browse fundraisers</h1>
+                <p class="lead">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+                <p>
+                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="album py-5">
+        <div class="container" style="max-width: 960px;">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for item in fundraisers %}
+                    <div class="col">
+                        <a href="/fundraiser/{{ item.id }}" class="text-decoration-none text-dark">
+                            <div class="card shadow-sm text-center">
+                                <img src="/images/{{ item.imagePath }}" class="bd-placeholder-img card-img-top"
+                                     width="100%" height="225" role="img" focusable="false" style="object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title limit-text-1">{{ item.title }}</h5>
+                                    <p class="card-text limit-text-3" style="min-height: 69px;"> {{ item.description }}</p>
+
+                                    <p class="card-text d-flex justify-content-between flex-wrap">
+                                        <span>{{ item.calculateRemainingTime() }}</span>
+                                        <i class="text-secondary">By: {{ item.fundraiserUser.username }}</i>
+                                    </p>
+
+                                    <div class="progress" style="height: 20px;">
+                                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                                             role="progressbar" style="width: {{ item.calculateCollectedPercent(true) }}%;"
+                                             aria-valuenow="{{ item.calculateCollectedPercent() }}" aria-valuemin="0" aria-valuemax="100">
+                                            {{ item.calculateCollectedPercent() }}%
+                                        </div>
+                                    </div>
+                                    <p class="card-text mt-3">
+                                        <strong class="fs-5">${{ item.getDonatedAmount() }}</strong> out of ${{ item.goal }}
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

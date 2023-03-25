@@ -41,18 +41,25 @@ nav {
   cursor: pointer;
 }
 
-.card-text, .card-title {
+.limit-text-1, .limit-text-2, .limit-text-3 {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
-.card-title {
+.limit-text-1 {
+  -webkit-line-clamp: 1 !important;
+  line-clamp: 1 !important;
+}
+
+.limit-text-2 {
+  -webkit-line-clamp: 2 !important;
+  line-clamp: 2 !important;
+}
+
+.limit-text-3 {
   -webkit-line-clamp: 3 !important;
   line-clamp: 3 !important;
 }
-
 
