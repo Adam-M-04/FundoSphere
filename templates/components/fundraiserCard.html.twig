@@ -1,0 +1,25 @@
+{% block card %}
+    <div class="card m-2" style="width: 18rem; height: calc(100% - 1rem);">
+        <img src="/images/{{ item.imagePath }}" class="card-img-top" alt="card image" style="max-height: 180px;">
+        <div class="card-body">
+            <h5 class="card-title" style="min-height: 48px;">{{ item.title }}</h5>
+            <p class="card-text" style="min-height: 69px;"> {{ item.description }}</p>
+
+            <p class="card-text d-flex justify-content-between flex-wrap">
+                <span>{{ item.calculateRemainingTime() }}</span>
+                <i class="text-secondary">By: {{ item.fundraiserUser.username }}</i>
+            </p>
+
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+                     role="progressbar" style="width: {{ item.calculateCollectedPercent(true) }}%;"
+                     aria-valuenow="{{ item.calculateCollectedPercent() }}" aria-valuemin="0" aria-valuemax="100">
+                    {{ item.calculateCollectedPercent() }}%
+                </div>
+            </div>
+            <p class="card-text mt-3">
+                <strong class="fs-5">${{ item.getDonatedAmount() }}</strong> out of ${{ item.goal }}
+            </p>
+        </div>
+    </div>
+{% endblock %}

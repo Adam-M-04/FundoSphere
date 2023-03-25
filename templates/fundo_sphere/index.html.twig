@@ -23,22 +23,11 @@
     <h1 class="display-1 text-light text-center">Latest</h1>
 
     <section class="container text-center">
-        <section class="d-flex justify-content-center flex-wrap">
+        <section class="d-flex justify-content-center flex-wrap h-100">
             {% for item in fundraisers %}
-                <section class="d-flex justify-content-center align-items-center">
+                <section class="d-flex justify-content-center align-items-stretch">
                     <a href="/fundraiser/{{ item.id }}" class="text-decoration-none text-dark">
-                        <div class="card m-2" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="card image">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ item.title }}</h5>
-                                <p class="card-text"> {{ item.description }}</p>
-                                <div class="progress">
-                                    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"
-                                         role="progressbar" style="width: 25%;"
-                                         aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                </div>
-                            </div>
-                        </div>
+                        {{ block("card", "components/fundraiserCard.html.twig") }}
                     </a>
                 </section>
             {% endfor %}

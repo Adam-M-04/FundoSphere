@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -31,6 +33,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: "string", length: 180, unique: true)]
     private ?string $email = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Fundraising::class)]
+    private Collection $fundraisings;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Donation::class)]
+    private Collection $donations;
+
+    public function __construct()
+    {
+        $this->fundraisings = new ArrayCollection();
+        $this->donations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -110,6 +124,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Fundraising>
+     */
+    public function getFundraisings(): Collection
+    {
+        return $this->fundraisings;
+    }
+
+    public function addFundraising(Fundraising $fundraising): self
+    {
+        if (!$this->fundraisings->contains($fundraising)) {
+            $this->fundraisings->add($fundraising);
+            $fundraising->setFundraiserUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFundraising(Fundraising $fundraising): self
+    {
+        if ($this->fundraisings->removeElement($fundraising)) {
+            // set the owning side to null (unless already changed)
+            if ($fundraising->getFundraiserUser() === $this) {
+                $fundraising->setFundraiserUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Donation>
+     */
+    public function getDonations(): Collection
+    {
+        return $this->donations;
+    }
+
+    public function addDonations(Donation $donations): self
+    {
+        if (!$this->donations->contains($donations)) {
+            $this->donations->add($donations);
+            $donations->setDonatingUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDonations(Donation $donations): self
+    {
+        if ($this->donations->removeElement($donations)) {
+            // set the owning side to null (unless already changed)
+            if ($donations->getDonatingUser() === $this) {
+                $donations->setDonatingUser(null);
+            }
+        }
 
         return $this;
     }

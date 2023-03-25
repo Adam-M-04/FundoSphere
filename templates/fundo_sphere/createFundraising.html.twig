@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="d-flex justify-content-center align-items-center text-light mt-4">
+        <section class="glassy-background m-3 p-4 container" style="max-width: 1200px;">
+            <h1 class="display-2 text-center text-light">Create fundraiser</h1>
+            {{ form_start(form) }}
+
+                {{ form_row(form.title) }}
+                {{ form_row(form.description) }}
+                {{ form_row(form.goal) }}
+                {{ form_row(form.deadline) }}
+
+                <label>Image</label>
+                {{ form_row(form.image_path) }}
+
+                {{ form_widget(form) }}
+                <button type="submit" class="form-control btn btn-success mt-3">Create</button>
+            {{ form_end(form) }}
+        </section>
+    </section>
+{% endblock %}
