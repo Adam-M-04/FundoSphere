@@ -63,3 +63,13 @@ nav {
   line-clamp: 3 !important;
 }
 
+@media (max-width: 992px) {
+  .mobile-center {
+    text-align: center !important;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+

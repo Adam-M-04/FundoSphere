@@ -1,6 +1,12 @@
 {% block card %}
     <div class="card m-2" style="width: 18rem; height: calc(100% - 1rem);">
-        <img src="/images/{{ item.imagePath }}" class="card-img-top" alt="card image" style="height: 180px;">
+        {% if item.imagePath %}
+            <img src="/images/{{ item.imagePath }}" class="card-img-top" alt="card image" style="height: 180px;">
+        {% else %}
+            <div class="w-100 bg-secondary d-flex justify-content-center align-items-center" style="height: 180px;">
+                <i class="bi bi-image fs-1 text-light"></i>
+            </div>
+        {% endif %}
         <div class="card-body">
             <h5 class="card-title limit-text-2" style="min-height: 48px;">{{ item.title }}</h5>
             <p class="card-text limit-text-3" style="min-height: 69px;"> {{ item.description }}</p>

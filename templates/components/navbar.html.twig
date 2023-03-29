@@ -1,19 +1,17 @@
 {% block navbar %}
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark">
         <div class="container">
             <a href="/" class="navbar-brand">
                 <img src="{{ asset('build/images/dollar.png') }}" height="32">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a href="#" class="nav-link px-3 link-light">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-3 link-light">Features</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-3 link-light">Pricing</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-3 link-light">FAQs</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-3 link-light">About</a></li>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-lg-0">
+                    <li class="nav-item"><a href="/" class="nav-link px-3 link-light">Home</a></li>
+                    <li class="nav-item"><a href="/fundraiser" class="nav-link px-3 link-light">All Fundraisers</a></li>
                 </ul>
 
                 {% if app.user %}
@@ -22,9 +20,9 @@
                             <span>{{ app.user.username }}</span>
                         </a>
                         <ul class="dropdown-menu text-small shadow">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                            <li><a class="dropdown-item" href="/profile/fundraisers">My Fundraisers</a></li>
+                            <li><a class="dropdown-item" href="/fundraiser/create">Create Fundraiser</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="/logout">Sign out</a></li>
                         </ul>

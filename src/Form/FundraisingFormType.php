@@ -30,6 +30,8 @@ class FundraisingFormType extends AbstractType
                 'attr' => ['class' => 'form-control mb-3']
             ])
             ->add('image_path', FileType::class, [
+                'required' => false,
+                'mapped' => false,
                 'attr' => ['class' => 'form-control mb-3'],
                 'label' => false
             ])
