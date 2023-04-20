@@ -1,0 +1,13 @@
+{% block sortByButton %}
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort by
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="?sort_by=newest">Newest</a></li>
+            <li><a class="dropdown-item" href="?sort_by=oldest">Oldest</a></li>
+            <li><a class="dropdown-item" href="?sort_by=ending">Ending</a></li>
+            <li><a class="dropdown-item" href="?sort_by=funds_raised">Funds raised</a></li>
+        </ul>
+    </div>
+{% endblock %}

@@ -2,11 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\FavoriteFundraisers;
 use App\Entity\Fundraising;
 use App\Form\FundraisingFormType;
 use Doctrine\ORM\EntityManagerInterface;
+use mysql_xdevapi\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -136,9 +139,11 @@ class FundraiserController extends AbstractController
     public function fundraiser(int $id): Response
     {
         $fundraiser = $this->em->getRepository(Fundraising::class)->find($id);
+        $isFavorite = $this->isFavorite($id);
 
         return $this->render('fundo_sphere/fundraiserPage.html.twig', [
-            'fundraiser' => $fundraiser
+            'fundraiser' => $fundraiser,
+            'isFavorite' => $isFavorite
         ]);
     }
 
@@ -146,5 +151,43 @@ class FundraiserController extends AbstractController
         if (file_exists($path) and is_file($path)) {
             unlink($path);
         }
+    }
+
+    #[Route("/fundraiser/favorite/handler/{id}", name: "favoriteHandler")]
+    public function favoriteHandler(int $id): JsonResponse
+    {
+        $isFavorite = $this->isFavorite($id);
+
+        if ($isFavorite) {
+            $currentFavorite = $this->em->getRepository(FavoriteFundraisers::class)->findBy(["user" => $this->getUser()->getId(), "favoriteFundraiser" => $id]);
+            if (count($currentFavorite) > 0) {
+                $this->em->remove($currentFavorite[0]);
+            }
+        }
+        else {
+            $newFavorite = new FavoriteFundraisers();
+            $newFavorite->setUser($this->getUser());
+            $newFavorite->setFavoriteFundraiser($this->em->getRepository(Fundraising::class)->find($id));
+            $this->em->persist($newFavorite);
+        }
+
+        try {
+            $this->em->flush();
+        }
+        catch (\Exception $e) { }
+
+        $newVal = $this->isFavorite($id);
+
+        if ($newVal == $isFavorite) {
+            return new JsonResponse(["success" => false, "new_value" => $newVal]);
+        }
+        return new JsonResponse(["success" => true, "new_value" => $newVal]);
+    }
+
+    private function isFavorite(int $id): bool
+    {
+        $user = $this->getUser();
+        if (!$user) return false;
+        return $this->em->getRepository(FavoriteFundraisers::class)->findBy(["user" => $user->getId(), "favoriteFundraiser" => $id]) ? true : false;
     }
 }

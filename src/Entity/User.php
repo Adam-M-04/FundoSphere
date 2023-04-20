@@ -40,10 +40,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Donation::class)]
     private Collection $donations;
 
+    #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: FavoriteFundraisers::class, orphanRemoval: true)]
+    private Collection $favoriteFundraisers;
+
     public function __construct()
     {
         $this->fundraisings = new ArrayCollection();
         $this->donations = new ArrayCollection();
+        $this->favoriteFundraisers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -182,6 +186,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($donations->getDonatingUser() === $this) {
                 $donations->setDonatingUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, FavoriteFundraisers>
+     */
+    public function getFavoriteFundraisers(): Collection
+    {
+        return $this->favoriteFundraisers;
+    }
+
+    public function addFavoriteFundraisers(FavoriteFundraisers $favoriteFundraiserId): self
+    {
+        if (!$this->favoriteFundraisers->contains($favoriteFundraiserId)) {
+            $this->favoriteFundraisers->add($favoriteFundraiserId);
+            $favoriteFundraiserId->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavoriteFundraisers(FavoriteFundraisers $favoriteFundraiserId): self
+    {
+        if ($this->favoriteFundraisers->removeElement($favoriteFundraiserId)) {
+            // set the owning side to null (unless already changed)
+            if ($favoriteFundraiserId->getUser() === $this) {
+                $favoriteFundraiserId->setUser(null);
             }
         }
 
