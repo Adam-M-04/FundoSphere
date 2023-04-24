@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Donation;
 use App\Entity\FavoriteFundraisers;
 use App\Entity\Fundraising;
 use App\Form\FundraisingFormType;
@@ -136,15 +137,46 @@ class FundraiserController extends AbstractController
     }
 
     #[Route('/fundraiser/{id}', name: 'fundraiser', condition: "params['id'] > 0")]
-    public function fundraiser(int $id): Response
+    public function fundraiser(int $id, Request $request): Response
     {
         $fundraiser = $this->em->getRepository(Fundraising::class)->find($id);
         $isFavorite = $this->isFavorite($id);
 
         return $this->render('fundo_sphere/fundraiserPage.html.twig', [
             'fundraiser' => $fundraiser,
-            'isFavorite' => $isFavorite
+            'isFavorite' => $isFavorite,
+            'error' => $request->query->get('error') == "true" ? "true" : "false"
         ]);
+    }
+
+    #[Route('/fundraiser/{id}/donate', name: 'fundraiserDonate', condition: "params['id'] > 0")]
+    public function fundraiserDonate(int $id, Request $request): Response
+    {
+        $fundraiser = $this->em->getRepository(Fundraising::class)->find($id);
+
+        $amount = $request->request->get('amount');
+        if (is_numeric($amount)) {
+            $amount = (int)$amount;
+            if ($amount >= 1 and $amount <= 10000) {
+                $donation = new Donation();
+                $donation->setAmount($amount);
+                $donation->setFundraiser($fundraiser);
+                $donation->setDonationDate(new \DateTime());
+                if ($this->getUser()) {
+                    $donation->setDonatingUser($this->getUser());
+                }
+
+                $this->em->persist($donation);
+                $this->em->flush();
+
+                return $this->render('donation/donationConfirmation.html.twig', [
+                    'fundraiser' => $fundraiser,
+                    'donation' => $donation
+                ]);
+            }
+        }
+
+        return $this->redirectToRoute('fundraiser', ['id' => $fundraiser->getId(), 'error' => 'true']);
     }
 
     private function deleteImage($path) {

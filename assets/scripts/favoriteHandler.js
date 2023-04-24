@@ -1,4 +1,5 @@
 let favoriteButton = document.getElementById('favorite-button')
+const toastBootstrapError = window.bootstrap.Toast.getOrCreateInstance(document.getElementById('errorToast'))
 
 function sendRequest(id) {
     fetch('/fundraiser/favorite/handler/' + id, {
@@ -8,7 +9,7 @@ function sendRequest(id) {
         .then(data => {
             if (!data.success) {
                 console.log("An error occurred")
-                alert("An error occurred. Try again later.")
+                toastBootstrapError.show()
                 return
             }
             let newVal = data.new_value

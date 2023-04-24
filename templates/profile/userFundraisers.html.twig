@@ -5,13 +5,10 @@
 {% block body %}
 
     <section class="py-5 container text-center text-light d-flex justify-content-center">
-        <div class="row py-lg-5 py-3 glassy-background w-100" style="max-width: 960px;">
+        <div class="row py-lg-5 py-3 glassy-background w-100" style="max-width: 960px; z-index: 10 !important;">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="fw-light">Your fundraisers</h1>
-                <p>
-                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                </p>
+                {{ block("sortByButton", "components/sortByButton.html.twig") }}
             </div>
         </div>
     </section>

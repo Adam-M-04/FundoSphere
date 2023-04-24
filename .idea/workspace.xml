@@ -4,21 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab618d09-5140-4b88-bd1a-1f3794849426" name="Changes" comment="Editing and deleting items">
-      <change afterPath="$PROJECT_DIR$/assets/scripts/favoriteHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20230417163305.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/FavoriteFundraisers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/FavoriteFundraisersRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/sortByButton.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/profile/userFavoriteFundraisers.html.twig" afterDir="false" />
+    <list default="true" id="ab618d09-5140-4b88-bd1a-1f3794849426" name="Changes" comment="Sorting fundraisers on 'all fundraisers' page">
+      <change afterPath="$PROJECT_DIR$/assets/scripts/donationScript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/donation/donationConfirmation.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/FundoSphereController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FundoSphereController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scripts/favoriteHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/favoriteHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scripts/messageToast.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scripts/messageToast.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/FundraiserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FundraiserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/navbar.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/fundo_sphere/allFundraisers.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fundo_sphere/allFundraisers.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/fundo_sphere/fundraiserPage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fundo_sphere/fundraiserPage.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/userFavoriteFundraisers.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/userFavoriteFundraisers.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/userFundraisers.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/userFundraisers.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -248,7 +244,12 @@
       <workItem from="1681829727171" duration="5969000" />
       <workItem from="1681911983703" duration="3832000" />
       <workItem from="1681921859433" duration="26000" />
-      <workItem from="1682006724892" duration="3888000" />
+      <workItem from="1682006724892" duration="3978000" />
+      <workItem from="1682066363153" duration="1361000" />
+      <workItem from="1682095182066" duration="3716000" />
+      <workItem from="1682147609124" duration="3821000" />
+      <workItem from="1682261024446" duration="3242000" />
+      <workItem from="1682346624624" duration="586000" />
     </task>
     <task id="LOCAL-00001" summary="Homepage frontend">
       <created>1679319683560</created>
@@ -285,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680102093594</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Sorting fundraisers on 'all fundraisers' page">
+      <created>1682012286579</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682012286579</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,6 +317,7 @@
     <MESSAGE value="Creating functionality added" />
     <MESSAGE value="Grid added" />
     <MESSAGE value="Editing and deleting items" />
-    <option name="LAST_COMMIT_MESSAGE" value="Editing and deleting items" />
+    <MESSAGE value="Sorting fundraisers on 'all fundraisers' page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sorting fundraisers on 'all fundraisers' page" />
   </component>
 </project>

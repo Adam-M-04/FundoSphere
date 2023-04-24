@@ -1,0 +1,19 @@
+{% block title %}
+    FundoSphere
+{% endblock %}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container bg-light rounded p-5 text-dark mt-5">
+        <h1 class="text-center">
+            Thank you for donating <span class="text-success">${{ donation.amount }}</span> for <i>"{{ fundraiser.title }}"</i>
+        </h1>
+
+        <div class="text-center">
+            <a href="/fundraiser/{{ fundraiser.id }}">
+                <button class="btn btn-lg btn-primary mt-5">Back</button>
+            </a>
+        </div>
+    </div>
+{% endblock %}

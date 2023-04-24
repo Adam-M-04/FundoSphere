@@ -6,8 +6,8 @@
 
 {% block body %}
 
-    <section class="py-5 container text-center text-light d-flex justify-content-center">
-        <div class="row py-4 py-lg-5 glassy-background w-100" style="max-width: 960px;">
+    <section class="py-5 container text-center text-light d-flex justify-content-center" style="">
+        <div class="row py-4 py-lg-5 glassy-background w-100" style="max-width: 960px; z-index: 10 !important;">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="fw-light">Browse fundraisers</h1>
                 {{ block("sortByButton", "components/sortByButton.html.twig") }}

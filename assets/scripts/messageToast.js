@@ -1,3 +1,5 @@
+
+// message toast
 const toastBootstrap = window.bootstrap.Toast.getOrCreateInstance(document.getElementById('liveToast'))
 
 document.getElementById('share-button').addEventListener('click', event => {
@@ -15,3 +17,10 @@ document.getElementById('share-button').addEventListener('click', event => {
         })
     }
 });
+
+// error toast
+const toastBootstrapError = window.bootstrap.Toast.getOrCreateInstance(document.getElementById('errorToast'))
+if (error) {
+    toastBootstrapError.show()
+}
+

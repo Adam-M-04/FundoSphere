@@ -48,7 +48,9 @@
                 </p>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
-                    <button type="button" class="btn btn-success btn-lg px-4 me-md-2">Donate</button>
+                    <button type="button" class="btn btn-success btn-lg px-4 me-md-2" data-bs-toggle="modal" data-bs-target="#donateModal">
+                        Donate
+                    </button>
                     {% if app.user == fundraiser.fundraiserUser %}
                         <a href="/fundraiser/update/{{ fundraiser.id }}">
                             <button type="button" class="btn btn-outline-warning btn-lg px-4">Edit</button>
@@ -67,7 +69,7 @@
         </p>
     </div>
 
-    <!-- Bootstrap confirm modal -->
+    <!-- Bootstrap delete confirmation modal -->
     <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -100,16 +102,55 @@
     </div>
     </div>
 
+    <!-- Bootstrap 'error' toast -->
+    <div class="toast-container p-3 top-0 end-0 position-fixed">
+        <div id="errorToast" class="toast bg-danger text-light align-items-center" role="alert"
+             aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    An error occurred!
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap donation modal -->
+    <div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Make a donation</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action="/fundraiser/{{ fundraiser.id }}/donate">
+                <div class="modal-body">
+                    <p class="m-1">Enter amount:</p>
+                    <div class="input-group">
+                        <span class="input-group-text">$</span>
+                        <input type="number" name="amount" class="form-control" min="1" max="10000" id="donationInput" minlength="1" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success w-100">Donate</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
     {% block javascripts %}
         {{ parent() }}
         {{ encore_entry_script_tags('messageToast') }}
         {{ encore_entry_script_tags('favoriteHandler') }}
+        {{ encore_entry_script_tags('donationScript') }}
     {% endblock %}
 
     <script>
         const url = '{{ url('homepage') }}fundraiser/{{ fundraiser.id }}'
         const id = {{ fundraiser.id }}
+        const error = {{ error }}
     </script>
 
 {% endblock %}
