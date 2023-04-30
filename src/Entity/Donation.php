@@ -21,6 +21,7 @@ class Donation
     private ?\DateTimeInterface $donationDate = null;
 
     #[ORM\ManyToOne(inversedBy: 'fundraiser')]
+    #[ORM\JoinColumn(name: 'donating_user_id', referencedColumnName: 'id', nullable: true, onDelete: 'SET NULL')]
     private ?User $donatingUser = null;
 
     #[ORM\ManyToOne(inversedBy: 'donations')]

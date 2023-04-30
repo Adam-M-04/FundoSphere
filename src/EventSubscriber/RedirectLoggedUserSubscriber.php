@@ -27,8 +27,10 @@ class RedirectLoggedUserSubscriber implements EventSubscriberInterface
         $routeName = $request->attributes->get('_route');
 
         // Check if the user is logged in and tries to access the registration form
-        if ($this->security->getUser() && $routeName === 'app_register') {
-            $event->setResponse(new RedirectResponse($this->urlGenerator->generate('homepage')));
+        if ($routeName === 'app_register') {
+            if ($this->security->getUser()) {
+                $event->setResponse(new RedirectResponse($this->urlGenerator->generate('homepage')));
+            }
         }
     }
 

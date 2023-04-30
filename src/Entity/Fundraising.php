@@ -184,8 +184,11 @@ class Fundraising
     public function calculateRemainingTime(): string
     {
         $date1 = new \DateTime('today');
-        $interval = $date1->diff($this->deadline);
-        return ($interval->m + $interval->y*12)." month" .($interval->m > 1 ? 's' : ''). ", "
-            .$interval->d." day" .($interval->d > 1 ? 's' : ''). " left";
+        if ($date1 < $this->deadline) {
+            $interval = $date1->diff($this->deadline);
+            return ($interval->m + $interval->y*12)." month" .($interval->m > 1 ? 's' : ''). ", "
+                .$interval->d." day" .($interval->d > 1 ? 's' : ''). " left";
+        }
+        return 'Finished ' . $this->deadline->format('Y-m-d');
     }
 }

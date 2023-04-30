@@ -13,13 +13,13 @@
                     <li class="nav-item"><a href="/" class="nav-link px-3 link-light">Home</a></li>
                     <li class="nav-item"><a href="/fundraiser" class="nav-link px-3 link-light">All Fundraisers</a></li>
                 </ul>
-
-                {% if app.user %}
+                {{ app.user == null ? 1 : 0 }}
+                {% if app.user != null %}
                     <div class="flex-shrink-0 dropdown">
                         <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             <span>{{ app.user.username }}</span>
                         </a>
-                        <ul class="dropdown-menu text-small shadow">
+                        <ul class="dropdown-menu dropdown-menu-end text-small shadow">
                             <li><a class="dropdown-item" href="/profile">Profile</a></li>
                             <li><a class="dropdown-item" href="/profile/fundraisers">My Fundraisers</a></li>
                             <li><a class="dropdown-item" href="/profile/fundraisers/favorite">Favorite Fundraisers</a></li>

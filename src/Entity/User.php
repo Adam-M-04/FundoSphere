@@ -34,13 +34,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: "string", length: 180, unique: true)]
     private ?string $email = null;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Fundraising::class)]
+    #[ORM\OneToMany(mappedBy: 'fundraiserUser', targetEntity: Fundraising::class, cascade: ['remove'])]
     private Collection $fundraisings;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Donation::class)]
+    #[ORM\OneToMany(mappedBy: 'donatingUser', targetEntity: Donation::class, cascade: ['remove'])]
     private Collection $donations;
 
-    #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: FavoriteFundraisers::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: FavoriteFundraisers::class, cascade: ['remove'])]
     private Collection $favoriteFundraisers;
 
     public function __construct()
@@ -213,7 +213,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeFavoriteFundraisers(FavoriteFundraisers $favoriteFundraiserId): self
     {
         if ($this->favoriteFundraisers->removeElement($favoriteFundraiserId)) {
-            // set the owning side to null (unless already changed)
             if ($favoriteFundraiserId->getUser() === $this) {
                 $favoriteFundraiserId->setUser(null);
             }

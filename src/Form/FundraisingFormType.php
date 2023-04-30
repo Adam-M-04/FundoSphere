@@ -27,7 +27,8 @@ class FundraisingFormType extends AbstractType
                 'attr' => ['class' => 'form-control mb-3', 'placeholder' => 'Enter the amount of money you wish to collect']
             ])
             ->add('deadline', DateType::class, [
-                'attr' => ['class' => 'form-control mb-3']
+                'widget' => 'single_text',
+                'attr' => ['class' => 'form-control mb-3 d-flex align-items-center', 'min' => date('Y-m-d')]
             ])
             ->add('image_path', FileType::class, [
                 'required' => false,

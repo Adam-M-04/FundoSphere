@@ -21,6 +21,9 @@ security:
                 check_path: app_login
             logout:
                 path: app_logout
+            login_throttling:
+                max_attempts: 5
+            custom_authenticator: App\Security\LoginCustomAuthenticator
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
