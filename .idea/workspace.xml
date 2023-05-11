@@ -4,27 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab618d09-5140-4b88-bd1a-1f3794849426" name="Changes" comment="Donating">
-      <change afterPath="$PROJECT_DIR$/assets/scripts/profileFormCollapse.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/scripts/profileMessageHandler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/644e39a4b130f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Security/LoginCustomAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="ab618d09-5140-4b88-bd1a-1f3794849426" name="Changes" comment="Account updating and deleting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Donation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Donation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Fundraising.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Fundraising.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventSubscriber/RedirectLoggedUserSubscriber.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventSubscriber/RedirectLoggedUserSubscriber.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/FundraisingFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FundraisingFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/components/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/navbar.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/fundo_sphere/fundraiserPage.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fundo_sphere/fundraiserPage.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,29 +171,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/adam/PhpstormProjects/FundoSphere/assets/scripts&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/adam/PhpstormProjects/FundoSphere",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/scripts" />
@@ -262,7 +244,9 @@
       <workItem from="1682346624624" duration="7258000" />
       <workItem from="1682688241876" duration="11249000" />
       <workItem from="1682775785983" duration="5443000" />
-      <workItem from="1682844937207" duration="3511000" />
+      <workItem from="1682844937207" duration="3678000" />
+      <workItem from="1682848680565" duration="1000" />
+      <workItem from="1683817799675" duration="210000" />
     </task>
     <task id="LOCAL-00001" summary="Homepage frontend">
       <created>1679319683560</created>
@@ -313,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682347291534</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Account updating and deleting">
+      <created>1682848592454</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682848592454</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,6 +330,7 @@
     <MESSAGE value="Editing and deleting items" />
     <MESSAGE value="Sorting fundraisers on 'all fundraisers' page" />
     <MESSAGE value="Donating" />
-    <option name="LAST_COMMIT_MESSAGE" value="Donating" />
+    <MESSAGE value="Account updating and deleting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Account updating and deleting" />
   </component>
 </project>

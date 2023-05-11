@@ -39,10 +39,12 @@
                     </p>
                     <p>
                         <i class="bi bi-share fs-3 cursor-pointer" id="share-button"></i>
-                        {% if isFavorite %}
-                            <i class="bi bi-heart-fill fs-3 cursor-pointer ms-3" id="favorite-button"></i>
-                        {% else %}
-                            <i class="bi bi-heart fs-3 cursor-pointer ms-3" id="favorite-button"></i>
+                        {% if app.user %}
+                            {% if isFavorite %}
+                                <i class="bi bi-heart-fill fs-3 cursor-pointer ms-3" id="favorite-button"></i>
+                            {% else %}
+                                <i class="bi bi-heart fs-3 cursor-pointer ms-3" id="favorite-button"></i>
+                            {% endif %}
                         {% endif %}
                     </p>
                 </p>
